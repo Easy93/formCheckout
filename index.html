@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>表单校验功能插件开发</title>
+</head>
+<body>
+
+  <div class="box">
+    <form class="data">
+      <div class="form-group">
+        <label for="exampleInputEmail">验证邮箱</label>
+        <!--
+          正则
+          不能为空
+        -->
+        <input type="text" class="form-control" id="exampleInputEmail" placeholder="请输入合法邮箱"
+        data-dr-regexp ="^\w+@\w+\.\w+$"
+        data-dr-regexp-message="请输入合法的邮箱账号"
+        data-dr-required = true
+        data-dr-required-message="邮箱不能为空"
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="exampleInputPassword1">输入密码</label>
+        <!--
+          正则
+          不能为空
+        -->
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="请输入数字字母下划线"
+        data-dr-regexp ="^\w+$"
+        data-dr-regexp-message="密码必须由数字字母下划线组成"
+        data-dr-required = true
+        data-dr-required-message="密码不能为空"
+        data-dr-min-length = 6
+        data-dr-min-length-message="密码不能小于6位"
+        data-dr-max-length = 16
+        data-dr-max-length-message="密码不能大于16位"
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="exampleInputEmail">手机号码</label>
+        <!--
+          正则
+          不能为空
+        -->
+        <input type="text" class="form-control" id="exampleInputEmail" placeholder="请输入合法手机号码"
+        data-dr-regexp ="^1\d{10}$"
+        data-dr-regexp-message="请输入合法的手机号"
+        data-dr-required = true
+        data-dr-required-message="手机号不能为空"
+        data-dr-min-length = 11
+        data-dr-min-length-message="手机号最小长度为11位哦">
+      </div>
+
+      <div class="form-group">
+        <label for="exampleInputEmail">确认密码</label>
+        <!--
+          正则
+          不能为空
+        -->
+        <input type="password" class="form-control" id="exampleInputEmail" placeholder="请再次输入密码"
+        data-dr-confirm = true
+        data-dr-confirm-message="两次密码输入不一致"
+        data-dr-required = true
+        data-dr-required-message="密码不能为空">
+      </div>
+
+      <button type="submit" class="btn btn-default">注册</button>
+
+    </form>
+
+  </div>
+
+  <script type="text/javascript" src="./js/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="./js/dataResult.js"></script>
+  <script type="text/javascript">
+    $(".data").dataResult(//initEvent:触发校验事件的方法  plugName：方法简称，需要与传入属性名称一致，例如 data-dr-required  中的dr  为默认值
+      // {
+      //   "initEvent":"blur",
+      //   "plugName":"pr"
+      // }
+    );
+    $.fn.dataResult.extendResult(//扩展方法，比如新增最大字符数，最小字符数等
+      // {
+      //   "RULESName":function(){
+      //     return
+      //   }
+      // }
+    )
+  </script>
+</body>
+</html>

@@ -1,1 +1,5 @@
-# formCheckout
+# formCheckout（表单元素校验插件）
+
+校验表单元素，例如手机号码是否11位等
+
+

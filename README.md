@@ -11,6 +11,7 @@ data-dr-required=true | true/false，input值不能为空值
 data-dr-min-length | number，input值的最小长度
 data-dr-max-length | number，input值的最大长度
 data-dr-confirm | true/false，一致性（用于确认密码输入框，默认与之前type="password"的input值做对比）
+
 消息提示自定义，属性名为 消息对应属性名-message，例如：data-dr-regexp-message
 
 ## 使用与扩展

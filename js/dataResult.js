@@ -47,11 +47,11 @@
   }
 
   // $.fn = jQuery.fn = jQuery.prototype
-  $.fn[plug] = function(options){  //在jQuery原型中拓展dataResult方法
+  $.fn[plug] = function(options){  //在jQuery原型中拓展dataResult方法,   options是在调用dataResult方法时，传入的自定义参数
     if(!this.is("form")){return}  //dom元素一定要是form才能使用本插件
     this.$file = this.find("input"); //找到input元素 并存储在当前对象的file属性中
 
-    $.extend(this,DEFAULT,options);
+    $.extend(this,DEFAULT,options);//将DEFAULT与option扩展入this属性中
 
     this.$file.on(this.initEvent,function(){  //获取this（触发方法的元素，element对象）有哪些配置，调用默认规则中的方法
 
@@ -59,7 +59,7 @@
       _this.siblings('p').remove();  //查找input元素是否有兄弟元素p，有则移除
 
       $.each(RULES,function(key,fn){  //key:键名 fn:键值
-        var $fileName = _this.data(DEFAULT.plugName+"-"+key);
+        var $fileName = _this.data(DEFAULT.plugName+"-"+key); //取键名对应的值
         var $message = _this.data(DEFAULT.plugName+"-"+key+"-message");
         if($fileName){
           var result = fn.call(_this,$fileName);//调用fn方法，并改变其中this的指向（传入啥指向啥）
